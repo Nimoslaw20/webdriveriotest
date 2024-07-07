@@ -4,17 +4,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 20
-        - name: Install
-          run: npm install
-        - name: Test
-          run: npm test
-        - uses: actions/upload-artifact@v1
-          if: failure()
-          with:
-            name: logs
-            path: logs
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npx wdio run ./wdio.conf.ts
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: logs
+          path: logs
