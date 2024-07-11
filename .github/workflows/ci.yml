@@ -17,8 +17,6 @@ jobs:
              npm install webdriverio --save-dev
              npm install @wdio/cli
           
-
-
       - name: Run tests
         run:  npm test #npx wdio run ./wdio.conf.ts
 
