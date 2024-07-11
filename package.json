@@ -15,6 +15,7 @@
     "test": "wdio run ./wdio.conf.ts"
   },
   "dependencies": {
+    "@wdio/allure-reporter": "^7.0.0",
     "create-wdio": "^8.4.7"
   }
 }
