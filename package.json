@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@wdio/allure-reporter": "^7.0.0",
-    "create-wdio": "^8.4.7"
+    "create-wdio": "^8.4.7",
+    "wdio-chromedriver-service": "^8.1.1"
   }
 }
