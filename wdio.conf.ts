@@ -224,8 +224,17 @@ export const config: Options.Testrunner = {
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
      */
-    // afterHook: function (test, context, { error, result, duration, passed, retries }, hookName) {
-    // },
+    afterHook: async function (test, context, { error, result, duration, passed, retries }, hookName) {
+    if(!passed){
+        console.log(context.title);
+        console.log(test.title);
+        console.log(error);
+        console.log(result);
+        await browser.takeScreenshot();
+    }
+    },
+
+    
     /**
      * Function to be executed after a test (in Mocha/Jasmine only)
      * @param {object}  test             test object
